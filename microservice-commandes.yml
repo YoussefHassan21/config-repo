@@ -7,6 +7,7 @@ spring:
     username: root
     password: Raja2013@@@
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -14,9 +15,14 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+microservice:
+  commandes:
+    jwtSecret: MySuperSecretKeyForJWT
+    jwtExpirationMs: 86400000
+
 logging:
   level:
     root: DEBUG
     org.springframework: DEBUG
     org.hibernate: DEBUG
-
