@@ -2,14 +2,10 @@ server:
   port: 8081
 
 spring:
-  application:
-    name: microservice-commandes
-  config:
-    import: "configserver:http://localhost:8888"  # Connexion au Config Server
   datasource:
     url: jdbc:mysql://localhost:3306/microservice_commandes?useSSL=false&serverTimezone=UTC
     username: root
-    password: Raja2013@@@  # Remplacez par votre mot de passe sécurisé
+    password: Raja2013@@@
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
