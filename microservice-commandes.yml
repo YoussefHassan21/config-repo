@@ -2,10 +2,14 @@ server:
   port: 8081
 
 spring:
+  application:
+    name: microservice-commandes
+  config:
+    import: "configserver:http://localhost:8888"  # Connexion au Config Server
   datasource:
     url: jdbc:mysql://localhost:3306/microservice_commandes?useSSL=false&serverTimezone=UTC
     username: root
-    password: Raja2013@@@
+    password: Raja2013@@@  # Remplacez par votre mot de passe sécurisé
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -15,6 +19,9 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+mes-config-ms:
+  commandes-last: 10  # Propriété personnalisée pour le nombre de commandes à afficher
 
 microservice:
   commandes:
@@ -26,3 +33,12 @@ logging:
     root: DEBUG
     org.springframework: DEBUG
     org.hibernate: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, info  # Exposer les endpoints nécessaires
+  endpoint:
+    health:
+      show-details: always
